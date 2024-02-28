@@ -2,3 +2,6 @@ component: catalogue
 service_type: ClusterIP
 port: 8080
 PARAMETERS: " catalogue.prod.MONGO_URL,MONGO_URL catalogue.prod.DOCUMENTDB,DOCUMENTDB"
+schema:
+  enabled: true
+  DB_TYPE: docdb
