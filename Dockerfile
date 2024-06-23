@@ -4,4 +4,4 @@ WORKDIR     /app
 COPY        node_modules /app/node_modules/
 COPY        package.json /app/package.json/
 COPY        server.js /app/server.js/
-ENTRYPOINT  ["node", "/app/run.sh"]
+ENTRYPOINT  ["node", "/app/server.js"]
