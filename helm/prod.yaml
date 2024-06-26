@@ -6,3 +6,5 @@ PARAMETERS: "catalogue.prod.MONGO_URL,MONGO_URL catalogue.prod.DOCUMENTDB,DOCUME
 schema:
   enabled: true
   DB_TYPE: docdb
+
+replicaCount: 2
