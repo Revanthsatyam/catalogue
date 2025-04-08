@@ -1,3 +1,19 @@
 @Library('roboshop') _
 
-nodejs()
+pipeline {
+    agent {
+          label 'workstation'
+        }
+
+    environment {
+        component = 'catalogue'
+    }
+
+    stages {
+        stage('Setup Catalogue') {
+            steps {
+                nodejs()
+            }
+        }
+    }
+}
