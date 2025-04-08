@@ -8,12 +8,6 @@ pipeline {
     environment {
         component = 'catalogue'
     }
-
-    stages {
-        stage('Setup Catalogue') {
-            steps {
-                nodejs()
-            }
-        }
-    }
 }
+
+nodejs()
