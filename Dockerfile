@@ -1,7 +1,7 @@
 FROM    node:18
+RUN     mkdir /app
 RUN     useradd roboshop
 USER    roboshop
-RUN     sudo mkdir /app
 WORKDIR /app
 COPY    schema package.json server.js /app/
 ENV     MONGO=true
