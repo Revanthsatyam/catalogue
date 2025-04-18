@@ -1,4 +1,4 @@
-FROM    nodejs:18
+FROM    nodejs18
 RUN     useradd roboshop
 USER    roboshop
 RUN     mkdir /app
