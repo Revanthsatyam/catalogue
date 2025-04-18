@@ -1,6 +1,6 @@
 FROM    node:18
 RUN     mkdir /app
-RUN     useradd roboshop
+RUN     useradd -m roboshop
 USER    roboshop
 WORKDIR /app
 COPY    schema package.json server.js /app/
