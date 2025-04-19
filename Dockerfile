@@ -1,6 +1,6 @@
 FROM    node:18
 RUN     mkdir /app
-RUN     curl -o /app/global-bundle.pem https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
+RUN     curl -o /app/rds-combined-ca-bundle.pem https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
 RUN     useradd -m roboshop
 USER    roboshop
 WORKDIR /app
