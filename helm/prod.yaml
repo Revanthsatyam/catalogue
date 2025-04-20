@@ -3,3 +3,4 @@ service_type: ClusterIP
 port: 80
 container_port: 8080
 target_port: 8080
+PARAMETERS: "catalogue.prod.DOCUMENTDB,DOCUMENTDB catalogue.prod.MONGO_URL,MONGO_URL"
