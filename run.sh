@@ -1,3 +1,3 @@
 #!/bin/bash
-source /component/parameters
+source /parameters-storage/parameters
 node /app/server.js
