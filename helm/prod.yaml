@@ -1,0 +1,5 @@
+component: catalogue
+service_type: ClusterIP
+port: 80
+container_port: 8080
+target_port: 8080
