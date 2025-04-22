@@ -8,3 +8,11 @@ PARAMETERS: "catalogue.prod.DOCUMENTDB,DOCUMENTDB catalogue.prod.MONGO_URL,MONGO
 schema_type: DOCDB
 schema_enabled: true
 env: prod
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 500Mi
+  requests:
+    cpu: 500m
+    memory: 500Mi
