@@ -7,3 +7,4 @@ PARAMETERS_ENABLED: true
 PARAMETERS: "catalogue.prod.DOCUMENTDB,DOCUMENTDB catalogue.prod.MONGO_URL,MONGO_URL"
 schema_type: DOCDB
 schema_enabled: true
+env: prod
