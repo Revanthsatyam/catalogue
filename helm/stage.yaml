@@ -4,7 +4,7 @@ port: 80
 container_port: 8080
 target_port: 8080
 PARAMETERS_ENABLED: true
-PARAMETERS: "catalogue.prod.DOCUMENTDB,DOCUMENTDB catalogue.prod.MONGO_URL,MONGO_URL"
+PARAMETERS: "catalogue.stage.DOCUMENTDB,DOCUMENTDB catalogue.stage.MONGO_URL,MONGO_URL"
 schema_type: DOCDB
 schema_enabled: true
 env: stage
