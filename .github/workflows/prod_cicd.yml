@@ -23,4 +23,5 @@ jobs:
     - name: Upload Node Modules artifact
       uses: actions/upload-artifact@v4
       with:
-        name: app
+        name: node-modules
+        path: node_modules
