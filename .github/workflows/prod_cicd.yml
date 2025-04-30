@@ -130,3 +130,52 @@ jobs:
         tags: |
           058264090525.dkr.ecr.us-east-1.amazonaws.com/catalogue-stage:${{ steps.build-number.outputs.tag }}
         no-cache: true
+
+  deploy_to_eks:
+    needs: push_to_ecr
+    runs-on: workstation
+    name: Deploy Image to EKS
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Update EKS Kube-Config
+      run: |
+        if [[ "${{ github.ref_name }}" == "main" ]]; then
+          aws eks update-kubeconfig --name prod-eks-cluster --region us-east-1
+        elif [[ "${{ github.ref_name }}" == "stage" ]]; then
+          aws eks update-kubeconfig --name stage-eks-cluster --region us-east-1
+        else
+          echo No other cluster is configured
+        fi
+
+    - name: Checkout APP code
+      uses: actions/checkout@v4
+      with:
+        repository: Revanthsatyam/shipping
+        path: APP
+          
+    - name: Checkout CHART code
+      uses: actions/checkout@v4
+      with:
+        repository: Revanthsatyam/roboshop-helm-d76
+        path: CHART
+
+    - name: Set build number tag
+      id: build-number
+      run: |
+        echo "tag=${{ github.run_number }}" >> $GITHUB_OUTPUT
+
+    - name: Deploy with Helm
+      run: |
+        if [[ "${{ github.ref_name }}" == "main" ]]; then
+          helm upgrade --install catalogue ./CHART -f APP/helm/prod.yaml \
+          --set image_tag=${{ steps.build-number.outputs.tag }}
+        elif [[ "${{ github.ref_name }}" == "stage" ]]; then
+          helm upgrade --install catalogue ./CHART -f APP/helm/stage.yaml \
+          --set image_tag=${{ steps.build-number.outputs.tag }}
+        else
+          echo Nothing to deploy
+        fi
+        
