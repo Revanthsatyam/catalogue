@@ -25,3 +25,17 @@ jobs:
       with:
         name: node-modules
         path: node_modules
+
+  test:
+    needs: compile
+    runs-on: workstation
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
+
+    - name: Run Test Cases
+      run: npm test
