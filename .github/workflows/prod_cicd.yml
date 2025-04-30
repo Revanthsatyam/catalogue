@@ -19,3 +19,8 @@ jobs:
 
     - name: Compile & Build
       run: npm install
+
+    - name: Upload Node Modules artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: app
